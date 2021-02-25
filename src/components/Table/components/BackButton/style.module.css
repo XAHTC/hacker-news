@@ -1,0 +1,13 @@
+.button {
+    margin: 0 10px;
+    border: 1px solid black;
+    outline: none;
+    background-color: lightgray;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 30px;
+    left: 15px;
+}

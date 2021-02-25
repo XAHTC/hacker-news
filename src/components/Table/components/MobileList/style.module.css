@@ -1,0 +1,9 @@
+.item {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    align-items: center;
+    background-color: lightsteelblue;
+    flex: 0 1 100%;
+}

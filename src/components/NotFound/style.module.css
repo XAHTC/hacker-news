@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin: 0 10px;
+    border: none;
+    outline: none;
+    background-color: lightsteelblue;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: filter 0.5s linear;
+}
+
+.button:hover {
+    filter: contrast(75%);
+}
