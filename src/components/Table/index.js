@@ -11,7 +11,9 @@ import SortButton from "./components/SortButton";
 import {getDataAsync, loadDataAsync, selectDataData, selectDataFetching, selectDataTable} from "../../redux/data";
 
 import s from "./style.module.css";
-import Loading from "./components/Loading";;
+import Loading from "./components/Loading";
+
+;
 
 const headers = ["Time added", "Title", "Domain"];
 
@@ -44,7 +46,12 @@ const Table = () => {
     }
 
     if (isFetching) {
-        return <Loading />
+        return (
+            <>
+                <Loading/>
+                <BackButton/>
+            </>
+        )
     }
 
     return (
@@ -54,14 +61,14 @@ const Table = () => {
                     <>
                         <Headers headers={headers}/>
                         <List data={data}/>
-                        <BackButton />
+                        <BackButton/>
                     </>
                 ) : (
                     <>
                         <MobileHeader/>
                         <MobileList data={data}/>
                         <SortButton/>
-                        <BackButton />
+                        <BackButton/>
                     </>
                 )
             }
