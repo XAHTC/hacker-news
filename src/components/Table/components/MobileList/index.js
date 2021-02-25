@@ -1,11 +1,20 @@
 import s from "./style.module.css"
 
+import Truncate from 'react-truncate';
+
 const MobileList = ({data}) => {
+    const handleClick = (url) => {
+        console.log(url);
+        window.open(url)
+    }
     return (
         <>
             {
-                data.map(item => <a key={item.title} href={item.url} rel={"noreferrer"} target={"_blank"}
-                                    className={s.item}>{item.title}</a>)
+                data.map(item => <Truncate key={item.id} className={s.item} lines={2}
+                                           ellipsis={"..."}
+                                           onClick={() => handleClick(item.url)}>
+                    {item.title}
+                </Truncate>)
             }
         </>
     )
