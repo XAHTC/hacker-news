@@ -25,3 +25,9 @@
     align-items: center;
     background-color: lightsteelblue;
 }
+
+@media (max-width: 768px) {
+    .row {
+        display: none;
+    }
+}

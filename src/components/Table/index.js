@@ -29,8 +29,6 @@ const Table = () => {
         history.replace("/");
     }
 
-    const isMobile = window.innerWidth < 768;
-
     useEffect(() => {
         if (!checkTable) {
             dispatch(getDataAsync(table));
@@ -63,20 +61,14 @@ const Table = () => {
     return (
         <div className={s.container}>
             {
-                !isMobile ? (
-                    <>
-                        <Headers headers={headers}/>
-                        <List data={data}/>
-                        <BackButton/>
-                    </>
-                ) : (
-                    <>
-                        <MobileHeader/>
-                        <MobileList data={data}/>
-                        <SortButton/>
-                        <BackButton/>
-                    </>
-                )
+                <>
+                    <Headers headers={headers}/>
+                    <List data={data}/>
+                    <BackButton/>
+                    <MobileHeader/>
+                    <MobileList data={data}/>
+                    <SortButton />
+                </>
             }
         </div>
     )

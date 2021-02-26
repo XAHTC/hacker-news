@@ -1,7 +1,7 @@
 .button {
     height: 30px;
     width: 30px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -19,4 +19,10 @@
 .arrow {
     width: 25px;
     height: 15px;
+}
+
+@media (max-width: 768px) {
+    .button {
+        display: flex;
+    }
 }

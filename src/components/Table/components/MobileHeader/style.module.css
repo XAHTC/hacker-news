@@ -1,5 +1,5 @@
 .header {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
@@ -7,4 +7,10 @@
     font-weight: bold;
     cursor: pointer;
     flex: 0 1 100%;
+}
+
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+    }
 }
