@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 import Headers from "./components/Headers";
 import List from "./components/List";
@@ -7,29 +8,34 @@ import MobileHeader from "./components/MobileHeader";
 import BackButton from "./components/BackButton";
 import MobileList from "./components/MobileList";
 import SortButton from "./components/SortButton";
+import Loading from "./components/Loading";
 
 import {getDataAsync, loadDataAsync, selectDataData, selectDataFetching, selectDataTable} from "../../redux/data";
 
 import s from "./style.module.css";
-import Loading from "./components/Loading";
-
-;
 
 const headers = ["Time added", "Title", "Domain"];
 
 const Table = () => {
     const [page, setPage] = useState(2);
-
+    const history = useHistory();
     const dispatch = useDispatch();
     const isFetching = useSelector(selectDataFetching);
     const data = useSelector(selectDataData);
     const table = useSelector(selectDataTable);
+    const checkTable = table === "";
+
+    if (checkTable) {
+        history.replace("/");
+    }
 
     const isMobile = window.innerWidth < 768;
 
     useEffect(() => {
-        dispatch(getDataAsync(table));
-    }, [dispatch, table])
+        if (!checkTable) {
+            dispatch(getDataAsync(table));
+        }
+    }, [dispatch, table, checkTable])
 
 
     useEffect(() => {

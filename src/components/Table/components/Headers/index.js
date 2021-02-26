@@ -10,6 +10,9 @@ import s from "./style.module.css"
 
 const Headers = ({headers}) => {
     const dispatch = useDispatch();
+    const [sortedTime, setSortedTime] = useState(false);
+    const [sortedTitle, setSortedTitle] = useState(false);
+    const [sortedDomain, setSortedDomain] = useState(false);
 
     const [active, setActive] = useState(null);
 
@@ -30,18 +33,21 @@ const Headers = ({headers}) => {
     }
 
     const sortTime = (idx) => {
-        setActive(idx)
-        dispatch(sortByTime());
+        setActive(idx);
+        dispatch(sortByTime(sortedTime));
+        setSortedTime(!sortedTime);
     }
 
     const sortTitle = (idx) => {
-        setActive(idx)
-        dispatch(sortByTitle())
+        setActive(idx);
+        dispatch(sortByTitle(sortedTitle));
+        setSortedTitle(!sortedTitle);
     }
 
     const sortDomain = (idx) => {
-        setActive(idx)
-        dispatch(sortByDomain())
+        setActive(idx);
+        dispatch(sortByDomain(sortedDomain));
+        setSortedDomain(!sortedDomain);
     }
 
     return (

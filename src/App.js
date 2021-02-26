@@ -5,6 +5,7 @@ import Table from "./components/Table";
 import NotFound from "./components/NotFound";
 
 function App() {
+
     return (
         <Switch>
             <Route path="/404" component={NotFound}/>

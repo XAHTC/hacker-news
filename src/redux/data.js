@@ -35,29 +35,53 @@ export const slice = createSlice({
                 ]
             }
         },
-        sortByTime: (state) => {
+        sortByTime: (state, action) => {
             const newData = [...state.data];
-            newData.sort((a, b) => b.time - a.time);
-            return {
-                ...state,
-                data: newData,
+            if (!action.payload) {
+                newData.sort((a, b) => b.time - a.time);
+                return {
+                    ...state,
+                    data: newData,
+                }
+            } else {
+                newData.reverse();
+                return {
+                    ...state,
+                    data: newData,
+                }
             }
         },
-        sortByTitle: (state) => {
+        sortByTitle: (state, action) => {
             const newData = [...state.data];
-            newData.sort((a, b) => a.title.localeCompare(b.title));
-            return {
-                ...state,
-                data: newData,
+            if (!action.payload) {
+                newData.sort((a, b) => a.title.localeCompare(b.title));
+                return {
+                    ...state,
+                    data: newData,
+                }
+            } else {
+                newData.reverse();
+                return {
+                    ...state,
+                    data: newData,
+                }
             }
 
         },
-        sortByDomain: (state) => {
+        sortByDomain: (state, action) => {
             const newData = [...state.data];
-            newData.sort((a, b) => a.domain.localeCompare(b.domain));
-            return {
-                ...state,
-                data: newData,
+            if (action.payload) {
+                newData.sort((a, b) => a.domain.localeCompare(b.domain));
+                return {
+                    ...state,
+                    data: newData,
+                }
+            } else {
+                newData.reverse();
+                return {
+                    ...state,
+                    data: newData,
+                }
             }
         }
     }
